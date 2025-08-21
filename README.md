@@ -14,6 +14,7 @@ This project uses **Machine Learning (Random Forest)** trained on applicant data
 ---
 ## 📂 Project Structure
 Loan_Approval_Prediction_App/
+
 │── app.py # Main Streamlit application
 
 │── credtech_data.csv # Dataset (must include loan_status column)
