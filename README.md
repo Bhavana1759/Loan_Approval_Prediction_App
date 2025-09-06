@@ -86,5 +86,3 @@ This project is licensed under the MIT License.
 Streamlit---->for interactive UI
 
 Scikit-learn---->for ML model
-
-Would you like me to also create a **`requirements.txt`** file for you (so you can run `pip install -r requirements.txt` easily)?
