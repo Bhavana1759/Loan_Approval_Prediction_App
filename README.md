@@ -1,88 +1,115 @@
 # 💳 Loan Approval Prediction App
-A **Streamlit web app** that predicts whether a loan application will be approved or not based on applicant details.  
-This project uses **Machine Learning (Random Forest)** trained on applicant data.
 
----
+A **Java-based desktop application** that predicts whether a loan application will be approved or rejected based on applicant details. The project uses a **Random Forest Machine Learning algorithm** implemented in Java and trained using applicant data from a CSV dataset.
 
 ## 🚀 Features
-- Upload or load loan dataset for training.  
-- Preprocesses categorical and numerical data automatically.  
-- Trains a **Random Forest Classifier** for loan approval prediction.  
-- Interactive UI for entering applicant details.  
-- Displays prediction result along with probability score.  
 
----
+- Loads applicant data automatically from a CSV dataset.
+- Displays a preview of the first five rows of the dataset.
+- Automatically identifies numerical and categorical features.
+- Preprocesses categorical data using label encoding.
+- Calculates mean values for numerical features.
+- Trains a Random Forest classifier using 50 decision trees.
+- Uses bootstrap sampling to train individual decision trees.
+- Provides an interactive form to enter applicant details.
+- Predicts the loan approval status.
+- Displays the prediction result along with its probability score.
+- Includes input validation for numerical values.
+
 ## 📂 Project Structure
+
+```text
 Loan_Approval_Prediction_App/
+│
+├── App.java              # Main Java application
+├── credtech_data.csv     # Dataset containing applicant details
+└── README.md             # Project documentation
+```
 
-│── app.py # Main Streamlit application
+## ⚙️ Installation and Setup
 
-│── credtech_data.csv # Dataset (must include loan_status column)
+### 1. Clone the Repository
 
-│── requirements.txt # Python dependencies
+```bash
+git clone https://github.com/<your-username>/Loan_Approval_Prediction_App.git
+cd Loan_Approval_Prediction_App
+```
 
-│── README.md # Project documentation
+### 2. Install Java
 
----
+Make sure Java JDK is installed on your system.
 
-## ⚙️ Installation
+Check the installation:
 
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/<your-username>/Loan_Approval_Prediction_App.git
-   cd Loan_Approval_Prediction_App
+```bash
+java -version
+javac -version
+```
 
-2. (Optional) Create a virtual environment:
-   python -m venv venv
-   source venv/bin/activate   # On Mac/Linux
-   venv\Scripts\activate      # On Windows
-3.Install dependencies:
-   pip install -r requirements.txt
-▶️ Run the App:
-   streamlit run app.py
----
+### 3. Add the Dataset
 
-The app will start on http://localhost:8501
+Place the `credtech_data.csv` file in the project folder.
 
----
-📊 Dataset
+The dataset must contain a target column named `loan_status`.
 
-The dataset file should be named credtech_data.csv.
+### 4. Compile the Application
 
-It must contain a target column named loan_status (e.g., Approved / Rejected).
+```bash
+javac App.java
+```
 
-Example columns:
+### 5. Run the Application
 
-age
+```bash
+java App
+```
 
-income
+The Loan Approval Prediction desktop application will open.
 
-credit_score
+## 📊 Dataset
 
-loan_amount
+The application uses a CSV dataset named `credtech_data.csv`.
 
-loan_term
+**Dataset requirements:**
 
-employment_years
+- Must contain applicant information.
+- Must include a target column named `loan_status`.
+- The target column contains loan approval categories such as Approved and Rejected.
+- All columns except `loan_status` are treated as input features.
 
-loan_status
+The application automatically identifies numerical and categorical columns based on the dataset values.
 
-🛠️ Technologies Used
+## 🤖 Machine Learning Algorithm
 
-Python
+**Random Forest Classifier**
 
-Streamlit
+The project implements a Random Forest algorithm using multiple Decision Trees.
 
-Pandas & NumPy
+Key implementation details:
 
-Scikit-learn (RandomForestClassifier)
+- Number of Decision Trees: 50
+- Maximum Tree Depth: 8
+- Bootstrap Sampling: Enabled
+- Feature Selection: Random feature selection using the square root of the total number of features.
+- Splitting Criterion: Gini Impurity
+- Prediction: Majority voting across the decision trees.
+- Probability: Calculated using the proportion of trees voting for each class.
 
-📜 License
+## 🛠️ Technologies Used
+
+- **Java** – Application development and machine learning implementation.
+- **Java Swing (AWT)** – Graphical User Interface (GUI).
+- **Java Collections** – Data handling and preprocessing.
+- **CSV** – Dataset storage and loading.
+- **Random Forest** – Loan approval classification.
+- **Decision Trees** – Individual prediction models.
+- **Gini Impurity** – Decision tree splitting criterion.
+
+## 📜 License
 
 This project is licensed under the MIT License.
 
-🙌 Acknowledgments
+## 🙌 Acknowledgments
 
-Streamlit---->for interactive UI
-
-Scikit-learn---->for ML model
+- Java Swing – For developing the interactive desktop interface.
+- Machine Learning – For implementing the Random Forest classification approach.
